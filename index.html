@@ -1,0 +1,114 @@
+<html>
+<!DOCTYPE>
+<html ng-app="SelectApp">
+	<head>
+		<meta charset="utf-8"/>
+		<title> Cadastro de Itens </title>
+		<link rel="stylesheet" href="public/css/bootstrap.min.css" >
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="public/js/services/bootstrap.min.js"></script>
+		<script src="public/js/services/angular.min.js"> </script>
+		<script src="public/js/services/function.js"> </script>
+		<script src="public/js/controllers/SelectCtrl.js"> </script>
+		<script src="public/css/style.css"> </script>
+	</head>
+	<style>
+	.center {
+	    margin: auto !important;
+	    width: 60% !important;
+	    border: 3px solid #e0e0df !important;
+	    padding: 10px !important;
+	}
+	.center2 {
+			margin: auto !important;
+			width: 80% !important;
+			border: 3px solid #e0e0df !important;
+			padding: 10px !important;
+	}
+
+	</style>
+	<body ng-controller="SelectController">,
+		<div class="">
+			<br><img src="public/img/banner.png" alt="Erro" style="position: relative;left: 65%;margin-left: -450px;"><br><br>
+		</div>
+		<div class="content">
+      <p style="color: black;">
+      </p>
+	      <div class="button" style="text-align:center">
+	        <a class="btn btn-sm btn-info" ng-click="alert()" href="#">Cadastro de Categorias</a>
+	        <a class="btn btn-sm btn-info" ng-click="alert()" href="#">Cadastro de Itens</a>
+	        <a class="btn btn-sm btn-info" ng-click="alert()" href="#">Cadastro de Comandas</a>
+	        <a class="btn btn-sm btn-primary" ng-click="alert()" href="#">Voltar</a>
+				</div>
+			<br><br>
+		</div>
+		<div class="flex-center position-ref">
+			<div class="center2">
+				<div class="container">
+					<h2 style="text-align:center"> Controle de Produtos </h2>
+					<table class="table">
+						<thead>
+							<tr>
+								<th> Código </th>
+								<th> Nome </th>
+								<th> Descrição </th>
+								<th> Preço </th>
+								<th style="text-align:center;"> Ação </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="produto in listaProdutos">
+								<td> {{produto.codigo}} </td>
+								<td> {{produto.nome}} </td>
+								<td> {{produto.desc}} </td>
+								<td> {{produto.valor}} </td>
+									<td style="text-align:center;">
+										<a href="#" ng-click="atualiza(produto.codigo)">  <button type="button" class="btn btn-primary">Atualiza</button></a>
+										<a href="#" ng-click="remove(produto.nome)">  <button type="button" class="btn btn-danger">Remove</button> </a>
+									</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br><br><br><br>
+				<div class="center">
+					<div class="container">
+						<h2 style="text-align:center"> Informações do produto </h2></br>
+						<form class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-sm-2"> Código </label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" ng-model="codigo"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2"> Nome </label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" ng-model="nome"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2"> Descrição </label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" ng-model="desc"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2"> Preço </label>
+								<div class="col-sm-6">
+									<input type="number" class="form-control" ng-model="valor"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-6">
+									<button ng-click="insere()" class="btn btn-success"> Salvar </button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
